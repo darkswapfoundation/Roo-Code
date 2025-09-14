@@ -49,3 +49,4 @@ logs
 
 # Qdrant
 qdrant_storage/
+/reference/

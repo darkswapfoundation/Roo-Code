@@ -217,8 +217,18 @@ type ProviderSecretKey = (typeof SECRET_STATE_KEYS)[number]
 type GlobalSecretKey = (typeof GLOBAL_SECRET_KEYS)[number]
 
 // Type representing all secrets that can be stored
-export type SecretState = Pick<ProviderSettings, Extract<ProviderSecretKey, keyof ProviderSettings>> & {
+export type SecretState = Pick<
+	ProviderSettings,
+	Extract<ProviderSecretKey, keyof ProviderSettings>
+> & {
 	[K in GlobalSecretKey]?: string
+} & {
+	codeIndexOpenAiKey?: string
+	codeIndexQdrantApiKey?: string
+	codebaseIndexOpenAiCompatibleApiKey?: string
+	codebaseIndexGeminiApiKey?: string
+	codebaseIndexMistralApiKey?: string
+	codebaseIndexVercelAiGatewayApiKey?: string
 }
 
 export const isSecretStateKey = (key: string): key is Keys<SecretState> =>

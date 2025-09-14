@@ -674,7 +674,7 @@ export class WebAuthService extends EventEmitter<AuthServiceEvents> implements A
 			}
 
 			const data = await response.json()
-			return data.response || data
+			return (data as any).response || data
 		} catch (error) {
 			this.log("[auth] Error fetching organization metadata:", error)
 			return null

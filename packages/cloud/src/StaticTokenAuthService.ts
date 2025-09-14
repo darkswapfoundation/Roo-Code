@@ -11,7 +11,7 @@ export class StaticTokenAuthService extends EventEmitter<AuthServiceEvents> impl
 	private log: (...args: unknown[]) => void
 	private userInfo: CloudUserInfo
 
-	constructor(context: ExtensionContext, token: string, log?: (...args: unknown[]) => void) {
+	constructor(_context: ExtensionContext, token: string, log?: (...args: unknown[]) => void) {
 		super()
 
 		this.token = token

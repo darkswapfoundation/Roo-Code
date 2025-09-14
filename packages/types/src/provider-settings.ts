@@ -96,24 +96,7 @@ export type ProviderSettingsEntry = z.infer<typeof providerSettingsEntrySchema>
  */
 export const DEFAULT_CONSECUTIVE_MISTAKE_LIMIT = 3
 
-const baseProviderSettingsSchema = z.object({
-	includeMaxTokens: z.boolean().optional(),
-	diffEnabled: z.boolean().optional(),
-	todoListEnabled: z.boolean().optional(),
-	fuzzyMatchThreshold: z.number().optional(),
-	modelTemperature: z.number().nullish(),
-	rateLimitSeconds: z.number().optional(),
-	consecutiveMistakeLimit: z.number().min(0).optional(),
-
-	// Model reasoning.
-	enableReasoningEffort: z.boolean().optional(),
-	reasoningEffort: reasoningEffortWithMinimalSchema.optional(),
-	modelMaxTokens: z.number().optional(),
-	modelMaxThinkingTokens: z.number().optional(),
-
-	// Model verbosity.
-	verbosity: verbosityLevelsSchema.optional(),
-})
+import { baseProviderSettingsSchema } from "./base-provider-settings.js"
 
 // Several of the providers share common model config properties.
 const apiModelIdProviderModelSchema = baseProviderSettingsSchema.extend({

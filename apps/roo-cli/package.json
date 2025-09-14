@@ -1,0 +1,20 @@
+{
+  "name": "roo-cli",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "build": "tsc",
+    "dev": "tsc -w"
+  },
+  "dependencies": {
+    "@roo-code/core": "workspace:*",
+    "commander": "^12.0.0",
+    "@dotenvx/dotenvx": "^0.35.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.24",
+    "typescript": "^5.3.3",
+    "ts-node": "^10.9.2"
+  }
+}
